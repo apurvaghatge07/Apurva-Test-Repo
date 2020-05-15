@@ -1,0 +1,41 @@
+tpli.Portfolio__c!='NFS'
+
+
+rendered="{!AND(tpli.Status__c!='Sold - Delivered',tpli.Status__c!='Sold - Pending Delivery',
+tpli.Yard_Hold__c,tpli.Portfolio__c!='PRE-SOLD',tpli.Portfolio__c!='NFS',tpli.Portfolio__c!='INT',tpli.Portfolio__c!='AUC')}"><!-- W-034261: AUC Change -->
+
+
+Franna Quote Document Testing:
+MP - Sean Symth
+https://terex--stage.lightning.force.com/lightning/r/Opportunity/0060r000002zz4RAAQ/view
+
+AWP-Utilities:
+Rick Aman:
+https://terex--stage.lightning.force.com/lightning/r/Opportunity/0060r000002zzlBAAQ/view
+
+Justin Pinkalla: TU New Equipment Record Type
+https://terex--stage.lightning.force.com/lightning/r/Opportunity/0061T00000oUP4KQAW/view
+
+Lissa Brady:
+https://terex--stage.lightning.force.com/lightning/r/Opportunity/0060r000002zzk8AAA/view
+
+
+UEQ-Quote:
+https://terex--stage.cs29.my.salesforce.com/0060r000002zzk8
+
+Will test for few more users.
+
+As the solution proposed by Tushar, we can create a batch to sync the quote. This will be applicable across all the segments.
+
+Batch which will run on the Quotes records, logic will be as below:
+i) Batch will pick all the Quotes created Today() and isSyncing = false
+ii) It will update field Sync Quote on Opportunity
+
+Will add necessary filters required and do a thorough test for all segments.
+
+
+Please let us know thoughts on this.
+
+
+Thanks,
+Apurva
