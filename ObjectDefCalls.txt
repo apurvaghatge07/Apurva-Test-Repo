@@ -1,0 +1,44 @@
+Triggers on Object(SOQL):
+Name: Name of trigger
+TableEnumOrId: Object name on which trigger is
+
+SELECT Id,Name,TableEnumOrId FROM ApexTrigger
+
+Approval Process (SOQL):
+SELECT Id,Name,DeveloperName,Type,Description,TableEnumOrId,State,CreatedDate FROM ProcessDefinition
+Where TableEnumOrId = 'Opportunity'
+
+Validation Rule (REST):
+REST Explorer: /services/data/v48.0/tooling/query?q=Select+Id,FullName,Active,Description,EntityDefinition.DeveloperName,ErrorDisplayField,
++ErrorMessage+From+ValidationRule+where+EntityDefinition.DeveloperName+=+'Account'
+
+/services/data/v48.0/tooling/query/?q=Select+Id,EntityDefinition.DeveloperName+From+ValidationRule
+
+/services/data/v41.0/tooling/query?q=Select+Id,Active,Description,EntityDefinition.DeveloperName,EntityDefinition.QualifiedApiName,
+ErrorDisplayField,Metadata,ErrorMessage+From+ValidationRule+where+EntityDefinition.QualifiedApiName='Account'
+/services/data/v48.0/tooling/sobjects/ValidationRule/03d0K000000kg8w
+
+Workflow Rule (REST):
+/services/data/v48.0/tooling/sobjects
+/services/data/v48.0/tooling/query?q=Select+Id,Name,TableEnumOrId+From+WorkflowRule
+add where clause with TableEnumOrId = Account
+
+Workflow Alert (REST):
+/services/data/v48.0/tooling/query?q=Select+DeveloperName+From+WorkflowAlert
+
+
+{done=true, entityTypeName=WorkflowRule, queryLocator=null, 
+records=({Id=01Q280000004Y9YEAU, Name=Assign Position to Recruiter, TableEnumOrId=Position__c, 
+attributes={type=WorkflowRule, url=/services/data/v48.0/tooling/sobjects/WorkflowRule/01Q280000004Y9YEAU}}, 
+
+{Id=01Q280000004Y8uEAE, Name=Extend an offer, TableEnumOrId=Job_Application__c, 
+attributes={type=WorkflowRule, url=/services/data/v48.0/tooling/sobjects/WorkflowRule/01Q280000004Y8uEAE}}, 
+
+{Id=01Q280000004Y8kEAE, Name=Send Rejection Letter, TableEnumOrId=Job_Application__c, 
+attributes={type=WorkflowRule, url=/services/data/v48.0/tooling/sobjects/WorkflowRule/01Q280000004Y8kEAE}}, 
+
+{Id=01Q280000004az4EAA, Name=Copy Unit Price, TableEnumOrId=Line_Item__c, 
+attributes={type=WorkflowRule, url=/services/data/v48.0/tooling/sobjects/WorkflowRule/01Q280000004az4EAA}}, 
+
+{Id=01Q280000011FpiEAE, Name=Case Escalate on High Priority, TableEnumOrId=Case, 
+attributes={type=WorkflowRule, url=/services/data/v48.0/tooling/sobjects/WorkflowRule/01Q280000011FpiEAE}}), size=5, totalSize=5}
